@@ -1,14 +1,20 @@
-import c from "classnames";
 
-type Props = React.ComponentProps<"button"> & {
-  label: "prev" | "next";
-};
+import React from 'react';
+import './button.css';
 
-import "./button.css";
+interface ButtonProps {
+  label: "prev" | "next" | "Deselect" | "Select";
+  onClick: () => void;
+  children: React.ReactNode;
+  className?: string; 
+}
 
-export function Button({ label, ...rest }: Props) {
+const Button: React.FC<ButtonProps> = ({ label, onClick, children, className }) => {
   return (
-    <button className={c("button", label)} {...rest}>
+    <button onClick={onClick} aria-label={label} className={`button ${className}`}>
+      {children}
     </button>
   );
-}
+};
+
+export default Button;

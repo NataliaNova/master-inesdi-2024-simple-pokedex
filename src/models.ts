@@ -24,6 +24,7 @@ export type PokemonType = {
   type: {
     name: string;
     url: string;
+    //
   };
 };
 
@@ -39,3 +40,10 @@ export type Pokemon = {
     front_default: string;
   };
 };
+
+// models.ts
+export interface PokemonTypes {
+  name: string;
+  url: string;
+  type: string; // Añadir esta línea
+}
